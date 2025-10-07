@@ -216,7 +216,7 @@ download_kernel() {
 
     # Convert kernel library address to svn format
     if [[ ${kernel_repo} == http* && $(echo ${kernel_repo} | grep "releases/download") != "" ]]; then
-        kernel_repo="${kernel_repo//releases\/download}"
+        kernel_repo="${kernel_repo\/releases\/download}"
     fi
     kernel_repo="${kernel_repo}/${version_branch}"
 
