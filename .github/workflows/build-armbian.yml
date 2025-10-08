@@ -18,9 +18,9 @@ on:
         required: false
         default: "bullseye"
       set_board:
-        description: "Board aml-s805-mxq / lepotato"
+        description: "Board odroidc1 / lepotato"
         required: false
-        default: "aml-s805-mxq"
+        default: "odroidc1"
       set_desktop:
         description: "Build Desktop: no / gnome / xfce, etc."
         required: false
