@@ -88,10 +88,10 @@ jobs:
           fi
           echo "ARMBIAN_RELEASE=${set_release}" >> $GITHUB_ENV
 
-          ARR_BOARD=("lepotato" "aml-s805-mxq")
+          ARR_BOARD=("lepotato" "odroidc1")
           set_board="${{ github.event.inputs.set_board }}"
           if  [[ -z "${set_board}" || -z "$(echo "${ARR_BOARD[@]}" | grep -w "${set_board}")" ]]; then
-              set_board="aml-s805-mxq"
+              set_board="odroidc1"
           fi
           echo "ARMBIAN_BOARD=${set_board}" >> $GITHUB_ENV
 
