@@ -213,7 +213,8 @@ find_armbian() {
 
 download_kernel() {
     cd ${make_path}
-
+    # https://github.com/ophub/kernel/releases/download/kernel_stable
+    # https://api.github.com/repos/ophub/kernel/releases
     # Convert kernel library address to svn format
     if [[ ${kernel_repo} == http* && $(echo ${kernel_repo} | grep "releases/download") != "" ]]; then
         kernel_repo="${kernel_repo\/releases\/download}"
@@ -225,7 +226,7 @@ download_kernel() {
 
     # Convert kernel library address to API format
     server_kernel_url=${kernel_repo#*com\/}
-    server_kernel_url=${server_kernel_url//trunk/contents}
+    server_kernel_url=${server_kernel_url//download\/kernel_stable/}
     server_kernel_url="https://api.github.com/repos/${server_kernel_url}"
 
     # Query the latest kernel in a loop
@@ -556,8 +557,8 @@ refactor_files() {
     echo "UUID=${ROOTFS_UUID}  /  ${ROOTFS_TYPE}  ${fstab_mount_string}  0 0" >>etc/fstab
 
     # Custom banner name
-    sed -i "s|BOARD_NAME=.*|BOARD_NAME=\"Aml ${soc}\"|g" ${armbian_release_file} 2>/dev/null
-
+    # sed -i "s|BOARD_NAME=.*|BOARD_NAME=\"Aml ${soc}\"|g" ${armbian_release_file} 2>/dev/null
+    sed -i "s|BOARD_NAME=.*|BOARD_NAME=\"Aml s805\"|g" ${armbian_release_file} 2>/dev/null
     # Make the .bashrc take effect, Default shell settings file: /etc/default/useradd
     echo '[[ "${SHELL}" == *bash && -f "${HOME}/.bashrc" ]] && . ${HOME}/.bashrc' >>etc/profile
 
