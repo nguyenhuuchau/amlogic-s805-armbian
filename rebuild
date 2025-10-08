@@ -216,9 +216,9 @@ download_kernel() {
     # https://github.com/ophub/kernel/releases/download/kernel_stable
     # https://api.github.com/repos/ophub/kernel/releases
     # Convert kernel library address to svn format
-    if [[ ${kernel_repo} == http* && $(echo ${kernel_repo} | grep "releases/download") != "" ]]; then
-        kernel_repo="${kernel_repo\/releases\/download}"
-    fi
+    # if [[ ${kernel_repo} == http* && $(echo ${kernel_repo} | grep "releases/download") != "" ]]; then
+    #     kernel_repo="${kernel_repo\/releases\/download}"
+    # fi
     kernel_repo="${kernel_repo}/${version_branch}"
 
     # Set empty array
