@@ -125,7 +125,8 @@ jobs:
           cd build/
           sudo chmod +x compile.sh
           sudo ./compile.sh BRANCH=${{ env.ARMBIAN_BRANCH }} RELEASE=${{ env.ARMBIAN_RELEASE }} BOARD=${{ env.ARMBIAN_BOARD }} ${{ env.ARMBIAN_DESKTOP_STR }} \
-                            HOST=armbian EXPERT=yes BUILD_MINIMAL=no KERNEL_CONFIGURE=no CLEAN_LEVEL=make,debs COMPRESS_OUTPUTIMAGE=sha
+                            HOST=armbian EXPERT=yes BUILD_MINIMAL=no KERNEL_CONFIGURE=no CLEAN_LEVEL=make,debs COMPRESS_OUTPUTIMAGE=sha \
+                            KERNELSOURCE="https://github.com/unifreq/linux-5.15.y" KERNELBRANCH="branch:main"
           echo "PACKAGED_OUTPUTPATH=${PWD}/output/images" >> $GITHUB_ENV
           echo "::set-output name=status::success"
 
